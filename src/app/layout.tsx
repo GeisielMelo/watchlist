@@ -2,8 +2,8 @@ import 'font-awesome/css/font-awesome.min.css'
 import './globals.css'
 
 import { Geist, Geist_Mono } from 'next/font/google'
-import Navigation from '@/components/navigation'
 import { ThemeProvider } from 'next-themes'
+import Header from '@/components/header'
 import Footer from '@/components/footer'
 import type { Metadata } from 'next'
 
@@ -20,8 +20,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <Navigation />
-          <main className="flex flex-col">{children}</main>
+          <Header />
+          <main className="flex flex-grow flex-col">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
