@@ -36,9 +36,6 @@ export const WatchlistNav: React.FC = () => {
             More
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <Link href="/discover">
-              <DropdownMenuItem>Discover</DropdownMenuItem>
-            </Link>
             <Link href="/top_rated">
               <DropdownMenuItem>Top Rated</DropdownMenuItem>
             </Link>
