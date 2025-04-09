@@ -15,14 +15,11 @@ export const WatchlistNav: React.FC = () => {
         <span className="hidden font-bold lg:inline-block">Watchlist</span>
       </Link>
       <nav className="flex items-center gap-4 text-sm xl:gap-6 text-nowrap">
-        <Link href="/" className="text-muted-foreground hover:text-accent-foreground">
-          Home
-        </Link>
         <Link href="/trending" className="text-muted-foreground hover:text-accent-foreground">
           Trending
         </Link>
-        <Link href="/movies" className="text-muted-foreground hover:text-accent-foreground">
-          Movies
+        <Link href="/movie" className="text-muted-foreground hover:text-accent-foreground">
+          Movie
         </Link>
         <Link href="/tv" className="text-muted-foreground hover:text-accent-foreground">
           TV Shows
