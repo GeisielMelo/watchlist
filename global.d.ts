@@ -191,3 +191,18 @@ interface IResponse<T> {
   total_results: number
   total_pages: number
 }
+
+
+interface IPage  {
+  params: Promise<{ [key: string]: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+interface ITitles  {
+  data: IResponse<IMovieData[]> | null
+  type?: TMediaType
+  title: string
+  href?: string
+  limit?: number
+  results?: boolean
+}
