@@ -22,7 +22,7 @@ export const SliderItem: React.FC<{ movie: IMovieData }> = ({ movie }) => {
             {movie.overview && <p>{movie.overview}</p>}
 
             <Link
-              className="px-8 py-4 max-w-36 text-nowrap rounded-md cursor-pointer mt-4 bg-white text-black hover:bg-white/70 transition-all"
+              className="py-4 px-12 text-nowrap rounded-md cursor-pointer mt-4 bg-white text-black hover:bg-white/70 transition-all"
               href={`/movie/${movie.id}`}
             >
               View Movie
