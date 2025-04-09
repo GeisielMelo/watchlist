@@ -27,115 +27,66 @@ const httpRequest = <T>(req: AxiosRequestConfig): Promise<T> => {
   })
 }
 
-export const getGenres = async (language = 'en-US') =>
-  httpRequest<{ genres: IGenre[] }>({
-    url: '/genre/movie/list',
-    params: { language },
-  })
+export const getGenres = async (params: Record<string, unknown>) => {
+  return httpRequest<{ genres: IGenre[] }>({ url: '/genre/movie/list', params })
+}
 
-export const getSelectedGenre = async (genreId: string, page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/discover/movie`,
-    params: { with_genres: genreId, page, language },
-  })
+export const getSelectedGenre = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/discover/movie`, params })
+}
 
-export const getTrendingMovies = async (page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/trending/all/day`,
-    params: { page, language },
-  })
+export const getTrendingMovies = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/trending/all/day`, params })
+}
 
-export const getDiscoverMovies = async (filter: IFilterProps, page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/discover/movie`,
-    params: {
-      page,
-      with_genres: filter.genre,
-      year: filter.year,
-      first_air_date_year: filter.year,
-      sort_by: filter.sort,
-      language,
-    },
-  })
+export const getDiscoverMovies = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/discover/movie`, params })
+}
 
-export const getUpcomingMovies = async (page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/movie/upcoming`,
-    params: { page, language },
-  })
+export const getUpcomingMovies = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/movie/upcoming`, params })
+}
 
-export const getPopularMovies = async (page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/movie/popular`,
-    params: { page, language },
-  })
+export const getPopularMovies = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/movie/popular`, params })
+}
 
-export const getTopRatedMovies = async (page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/movie/top_rated`,
-    params: { page, language },
-  })
+export const getTopRatedMovies = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/movie/top_rated`, params })
+}
 
-export const getTvShows = async (filter: IFilterProps, page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[]>>({
-    url: `/discover/tv`,
-    params: {
-      page,
-      with_genres: filter.genre,
-      year: filter.year,
-      first_air_date_year: filter.year,
-      sort_by: filter.sort,
-      language,
-    },
-  })
+export const getTvShows = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[]>>({ url: `/discover/tv`, params })
+}
 
-export const getSelectedMovie = async (mediaType: TMediaType, id: string, language = 'en-US') =>
-  httpRequest<IMovieData>({
-    url: `/${mediaType}/${id}`,
-    params: {
-      append_to_response: 'similar,videos,images',
-      language,
-    },
-  })
+export const getSelectedMovie = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
+  return httpRequest<IMovieData>({ url: `/${mediaType}/${id}`, params })
+}
 
-export const getMovieCredits = async (mediaType: TMediaType, id: string, language = 'en-US') =>
-  httpRequest<{ id: string; cast: ICast[] }>({
-    url: `/${mediaType}/${id}/credits`,
-    params: { language },
-  })
+export const getMovieCredits = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
+  return httpRequest<{ id: string; cast: ICast[] }>({ url: `/${mediaType}/${id}/credits`, params })
+}
 
-export const getMovieKeywords = async (mediaType: TMediaType, id: string, language = 'en-US') =>
-  httpRequest<{ id: string; keywords: IKeyword[] }>({
-    url: `/${mediaType}/${id}/keywords`,
-    params: { language },
-  })
+export const getMovieKeywords = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
+  return httpRequest<{ id: string; keywords: IKeyword[] }>({ url: `/${mediaType}/${id}/keywords`, params })
+}
 
-export const getMovieReviews = async (mediaType: TMediaType, id: string, language = 'en-US') =>
-  httpRequest<{ id: string; results: IReview[] }>({
-    url: `/${mediaType}/${id}/reviews`,
-    params: { language },
-  })
+export const getMovieReviews = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
+  return httpRequest<{ id: string; results: IReview[] }>({ url: `/${mediaType}/${id}/reviews`, params })
+}
 
-export const search = async (category: TMediaType | 'person', query: string, page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IMovieData[] | ICast[]>>({
-    url: `/search/${category}`,
-    params: { query, page, language },
-  })
+export const search = async (category: TMediaType | 'person', params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IMovieData[] | ICast[]>>({ url: `/search/${category}`, params })
+}
 
-export const getPeople = async (page = 1, language = 'en-US') =>
-  httpRequest<IResponse<IActor[]>>({
-    url: '/person/popular',
-    params: { page, language },
-  })
+export const getPeople = async (params: Record<string, unknown>) => {
+  return httpRequest<IResponse<IActor[]>>({ url: '/person/popular', params })
+}
 
-export const getSelectedPerson = async (id: string | number, language = 'en-US') =>
-  httpRequest<IActor>({
-    url: `/person/${id}`,
-    params: { append_to_response: 'images', language },
-  })
+export const getSelectedPerson = async (id: string | number, params: Record<string, unknown>) => {
+  return httpRequest<IActor>({ url: `/person/${id}`, params })
+}
 
-export const getSelectedPersonCasting = async (id: string | number, language = 'en-US') =>
-  httpRequest<{ cast: IActor[] }>({
-    url: `/person/${id}/combined_credits`,
-    params: { language },
-  })
+export const getSelectedPersonCasting = async (id: string | number, params: Record<string, unknown>) => {
+  return httpRequest<{ cast: IActor[] }>({ url: `/person/${id}/combined_credits`, params })
+}
