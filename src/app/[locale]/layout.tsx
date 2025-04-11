@@ -9,6 +9,7 @@ import Header from '@/components/header'
 import Footer from '@/components/footer'
 import { routing } from '@/i18n/routing'
 import NextTopLoader from 'nextjs-toploader'
+import { FavoritesProvider } from '@/context/favotires-contex'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -25,12 +26,14 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-      <NextTopLoader color="#71717A" />
+        <NextTopLoader color="#71717A" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider locale={locale}>
-            <Header />
-            <main className="flex flex-grow flex-col">{children}</main>
-            <Footer />
+            <FavoritesProvider>
+              <Header />
+              <main className="flex flex-grow flex-col">{children}</main>
+              <Footer />
+            </FavoritesProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
