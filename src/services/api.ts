@@ -27,8 +27,8 @@ const httpRequest = <T>(req: AxiosRequestConfig): Promise<T> => {
   })
 }
 
-export const getGenres = async (params: Record<string, unknown>) => {
-  return httpRequest<{ genres: IGenre[] }>({ url: '/genre/movie/list', params })
+export const getGenres = async (mediaType: TMediaType, params: Record<string, unknown>) => {
+  return httpRequest<{ genres: IGenre[] }>({ url: `/genre/${mediaType}/list`, params })
 }
 
 export const getSelectedGenre = async (params: Record<string, unknown>) => {
