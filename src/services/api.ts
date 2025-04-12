@@ -79,7 +79,7 @@ export const search = async (category: TMediaType | 'person', params: Record<str
   return httpRequest<IResponse<IMovieData[] | ICast[]>>({ url: `/search/${category}`, params })
 }
 
-export const getPeople = async (params: Record<string, unknown>) => {
+export const getPersons = async (params: Record<string, unknown>) => {
   return httpRequest<IResponse<IActor[]>>({ url: '/person/popular', params })
 }
 
