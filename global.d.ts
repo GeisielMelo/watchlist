@@ -172,18 +172,6 @@ interface ICast {
   other: number
 }
 
-interface IActor extends ICast {
-  also_known_as: string[]
-  biography: string
-  birthday: string
-  deathday: string | null
-  homepage: string | null
-  imdb_id: string
-  place_of_birth: string
-  images: {
-    profiles: IImage[]
-  }
-}
 
 interface IResponse<T> {
   page: number
@@ -205,4 +193,33 @@ interface ITitles  {
   href?: string
   limit?: number
   results?: boolean
+}
+
+
+interface IExternalIds {
+  freebase_mid?: string
+  freebase_id?: string
+  imdb_id?: string
+  tvrage_id?: number
+  wikidata_id?: string
+  facebook_id?: string
+  instagram_id?: string
+  tiktok_id?: string | number
+  twitter_id?: string | number
+  youtube_id?: string | number
+}
+
+
+interface IActor extends ICast {
+  also_known_as: string[]
+  biography: string
+  birthday: string
+  deathday: string | null
+  homepage: string | null
+  imdb_id: string
+  place_of_birth: string
+  images: {
+    profiles: IImage[]
+  }
+  external_ids: IExternalIds
 }

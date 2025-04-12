@@ -88,5 +88,5 @@ export const getSelectedPerson = async (id: string | number, params: Record<stri
 }
 
 export const getSelectedPersonCasting = async (id: string | number, params: Record<string, unknown>) => {
-  return httpRequest<{ cast: IActor[] }>({ url: `/person/${id}/combined_credits`, params })
+  return httpRequest<{ cast: IMovieData[] }>({ url: `/person/${id}/combined_credits`, params })
 }
