@@ -10,9 +10,6 @@ export default async function TopRated({ params, searchParams }: IPage) {
     search('person', { ...urlParams, page: 1, language: locale }).catch(() => null),
   ])
 
-
-  console.log({ movie, tv, person })
-
   return (
     <>
       {movie && <>{movie.total_results}</>}
