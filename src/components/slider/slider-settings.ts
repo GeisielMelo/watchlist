@@ -5,7 +5,7 @@ export const sliderSettings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
-  autoplaySpeed: 10000,
+  autoplaySpeed: 5000,
   draggable: true,
   easing: 'easeInOutQuad',
   fade: true
