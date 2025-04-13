@@ -1,5 +1,5 @@
 const Footer: React.FC = () => (
-  <div className="flex justify-center items-center h-16 mt-auto text-sm">
+  <div className="flex justify-center items-center h-16 mt-20 text-sm">
     <span>
       Made by &nbsp;
       <a href="https://geisiel.com/" target="_blank" className="text-blue-500 hover:underline">
