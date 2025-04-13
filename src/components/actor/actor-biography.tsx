@@ -9,17 +9,19 @@ export const ActorBiography: React.FC<{ biography: string }> = ({ biography }) =
     setShowFullBiography(!showFullBiography)
   }
 
-  const truncatedBiography = biography && biography.length > 535 ? biography.slice(0, 450) + '...' : biography
+  const truncatedBiography = biography && biography.length > 535 ? biography.slice(0, 400) + '...' : biography
+
+  if (!biography) return null
 
   return (
     <div>
-      <span>Biography</span>
+      <span className="font-bold">Biography</span>
       <p className="mt-2 text-sm">
         {showFullBiography ? biography : truncatedBiography}{' '}
         <span>
-          {biography.length > 535 && (
-            <span onClick={toggleBiography} className="text-blue-500 underline mt-2 text-sm">
-              {showFullBiography ? 'show less' : 'show more.'}
+          {biography.length > 400 && (
+            <span onClick={toggleBiography} className="text-blue-500 hover:underline mt-2 text-sm cursor-pointer">
+              {showFullBiography ? 'show less' : 'show more'}
             </span>
           )}
         </span>
