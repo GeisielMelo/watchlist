@@ -17,10 +17,10 @@ export const WatchlistPerson: React.FC<{ person: IResponse<IActor[]>}> = ({ pers
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-x-6 gap-y-10">
           {person?.results.map((element, key) => (
-            <Link key={key} href={`/people/${element.id}`} className='rounded'>
+            <Link key={key} href={`/people/${element.id}`} className='rounded-lg'>
               <img
                 src={TMDB_POSTER_PATH_185x278 + element.profile_path}
-                className="w-full aspect-[9/14] rounded bg-foreground"
+                className="w-full aspect-[9/14] rounded-lg bg-foreground"
                 alt={element.name || element.original_name}
                 title={element.name || element.original_name}
               />
