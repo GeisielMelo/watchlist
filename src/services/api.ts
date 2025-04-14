@@ -59,7 +59,7 @@ export const getTvShows = async (params: Record<string, unknown>) => {
   return httpRequest<IResponse<IMovieData[]>>({ url: `/discover/tv`, params })
 }
 
-export const getSelectedMovie = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
+export const getSelectedTitle = async (mediaType: TMediaType, id: string, params: Record<string, unknown>) => {
   return httpRequest<IMovieData>({ url: `/${mediaType}/${id}`, params })
 }
 

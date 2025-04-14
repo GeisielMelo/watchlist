@@ -1,5 +1,5 @@
-import { WatchlistPagination } from '@/components/ui/watchlist-pagination'
-import { WatchlistPerson } from '@/components/ui/watchlist-people'
+import { WatchlistPagination } from '@/components/watchlist-pagination'
+import { WatchlistPeople } from '@/components/watchlist-people'
 import { getPersons } from '@/services/api'
 import { notFound } from 'next/navigation'
 
@@ -14,7 +14,7 @@ export default async function Persons({ searchParams }: IPage) {
 
   return (
     <>
-      <WatchlistPerson person={person} />
+      <WatchlistPeople person={person} />
       <WatchlistPagination currentPage={page} totalPages={totalPages} />
     </>
   )

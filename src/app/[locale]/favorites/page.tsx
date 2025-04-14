@@ -1,7 +1,7 @@
 'use client'
 
+import { WatchlistTitles } from '@/components/watchlist-titles'
 import { useEffect, useState } from 'react'
-import { Titles } from '@/components/titles'
 
 export default function Favorites() {
   const [favorites, setFavorites] = useState<IResponse<IMovieData[]> | null>(null)
@@ -14,5 +14,5 @@ export default function Favorites() {
     }
   }, [])
 
-  return <Titles title="Favorites" results={true} data={favorites} />
+  return <WatchlistTitles title="Favorites" results={true} data={favorites} />
 }

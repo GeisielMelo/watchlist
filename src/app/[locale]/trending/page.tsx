@@ -1,6 +1,6 @@
-import { WatchlistPagination } from '@/components/ui/watchlist-pagination'
+import { WatchlistPagination } from '@/components/watchlist-pagination'
+import { WatchlistTitles } from '@/components/watchlist-titles'
 import { getTrendingMovies } from '@/services/api'
-import { Titles } from '@/components/titles'
 
 export default async function Trending({ params, searchParams }: IPage) {
   const query = await searchParams
@@ -12,7 +12,7 @@ export default async function Trending({ params, searchParams }: IPage) {
 
   return (
     <>
-      <Titles type="movie" title="Trending" results={true} data={trending} />
+      <WatchlistTitles type="movie" title="Trending" results={true} data={trending} />
       <WatchlistPagination currentPage={page} totalPages={totalPages} />
     </>
   )

@@ -1,5 +1,8 @@
-import Actor from '@/components/actor'
+import { WatchlistPersonImages } from '@/components/watchlist-person-images'
 import { getSelectedPerson, getSelectedPersonCasting } from '@/services/api'
+import { WatchlistPersonWorks } from '@/components/watchlist-person-works'
+import { WatchlistPerson } from '@/components/watchlist-person'
+import { notFound } from 'next/navigation'
 
 export default async function SelectedPerson({ params }: IPage) {
   const { id, locale } = await params
@@ -8,5 +11,13 @@ export default async function SelectedPerson({ params }: IPage) {
     getSelectedPersonCasting(id, { language: locale }).catch(() => null),
   ])
 
-  return <Actor person={person} casting={casting} />
+  if (!person && !casting) return notFound()
+
+  return (
+    <>
+      {person && <WatchlistPerson person={person} />}
+      {casting && casting.cast.length >= 1 && <WatchlistPersonWorks cast={casting.cast} />}
+      {person && person.images.profiles.length >= 1 && <WatchlistPersonImages profiles={person.images.profiles} />}
+    </>
+  )
 }

@@ -1,4 +1,4 @@
-import WatchListGenre from '@/components/ui/watchlist-genre'
+import WatchListGenre from '@/components/watchlist-genre'
 import { getGenres } from '@/services/api'
 
 export default async function Genre({ params }: IPage) {

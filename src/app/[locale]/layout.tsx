@@ -1,15 +1,15 @@
 import 'font-awesome/css/font-awesome.min.css'
 import '@/styles/globals.css'
 
+import { FavoritesProvider } from '@/context/favotires-contex'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
+import WatchlistHeader from '@/components/watchlist-header'
+import WatchlistFooter from '@/components/watchlist-footer'
 import { Geist, Geist_Mono } from 'next/font/google'
+import NextTopLoader from 'nextjs-toploader'
 import { ThemeProvider } from 'next-themes'
 import { notFound } from 'next/navigation'
-import Header from '@/components/header'
-import Footer from '@/components/footer'
 import { routing } from '@/i18n/routing'
-import NextTopLoader from 'nextjs-toploader'
-import { FavoritesProvider } from '@/context/favotires-contex'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -30,9 +30,9 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider locale={locale}>
             <FavoritesProvider>
-              <Header />
+              <WatchlistHeader />
               <main className="flex flex-grow flex-col">{children}</main>
-              <Footer />
+              <WatchlistFooter />
             </FavoritesProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

@@ -1,6 +1,6 @@
-import { WatchlistPagination } from '@/components/ui/watchlist-pagination'
+import { WatchlistPagination } from '@/components/watchlist-pagination'
+import { WatchlistTitles } from '@/components/watchlist-titles'
 import { getTvShows } from '@/services/api'
-import { Titles } from '@/components/titles'
 
 export default async function Movies({ params, searchParams }: IPage) {
   const query = await searchParams
@@ -12,7 +12,7 @@ export default async function Movies({ params, searchParams }: IPage) {
 
   return (
     <>
-      <Titles type="tv" title="TV Shows" results={true} data={tv} />
+      <WatchlistTitles type="tv" title="TV Shows" results={true} data={tv} />
       <WatchlistPagination currentPage={page} totalPages={totalPages} />
     </>
   )
