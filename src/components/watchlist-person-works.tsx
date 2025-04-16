@@ -1,4 +1,4 @@
-import { WatchlistTitleCard } from '@/components/watchlist-title-card'
+import { WatchlistCard } from '@/components/watchlist-card'
 
 export const WatchlistPersonWorks: React.FC<{ cast: IMovieData[] }> = ({ cast }) => {
   return (
@@ -10,7 +10,7 @@ export const WatchlistPersonWorks: React.FC<{ cast: IMovieData[] }> = ({ cast })
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-x-6 gap-y-10">
           {cast.map((element, key) => (
-            <WatchlistTitleCard key={key} data={element} />
+            <WatchlistCard key={key} data={element} />
           ))}
         </div>
       </div>

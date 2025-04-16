@@ -1,4 +1,4 @@
-import { WatchlistTitleCard } from './watchlist-title-card'
+import { WatchlistCard } from './watchlist-card'
 import Link from 'next/link'
 
 const TitleSkeleton: React.FC<{ title: string }> = ({ title }) => {
@@ -41,7 +41,7 @@ export const WatchlistTitles: React.FC<ITitles> = ({ title, href, type, limit, r
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-x-6 gap-y-10">
           {filteredData.map((element, key) => (
-            <WatchlistTitleCard key={key} data={element} />
+            <WatchlistCard key={key} data={element} />
           ))}
         </div>
       </div>
