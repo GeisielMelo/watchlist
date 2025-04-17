@@ -1,7 +1,8 @@
 import { WatchlistSearch } from './watchlist-search'
+import { WatchlistSheet } from './watchlist-sheet'
 import { WatchlistNav } from './watchlist-nav'
 import { ModeToggle } from './ui/mode-toggle'
-import { WatchlistSheet } from './watchlist-sheet'
+import { Language } from './common/language'
 
 const WatchlistHeader: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const WatchlistHeader: React.FC = () => {
         <div className="flex w-full items-center justify-end gap-1">
           <WatchlistSearch />
           <ModeToggle />
+          <Language/>
           <WatchlistSheet />
         </div>
       </div>
