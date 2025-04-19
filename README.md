@@ -5,7 +5,7 @@
   watchlist.geisiel.com
 </h1>
 <p align="center">
-  Final version of the Watchlist project, built with <a href="https://nextjs.org/" target="_blank">Next.js</a> and hosted on <a href="https://vercel.com/" target="_blank">Vercel</a>.
+  Final version of the Watchlist project, built with <a href="https://nextjs.org/" target="_blank">Next</a> and hosted on <a href="https://vercel.com/" target="_blank">Vercel</a>.
 </p>
 <p align="center">
   Previous iterations:
