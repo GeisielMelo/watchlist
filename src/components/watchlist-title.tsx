@@ -17,13 +17,11 @@ export const WatchlistTitle: React.FC<{ data: IMovieData; type: TMediaType }> = 
   return (
     <section style={{ backgroundImage: backgroundImage }} className="bg-no-repeat bg-cover bg-center text-white">
       <div className="flex justify-center w-full bg-[rgba(10,25,47,0.7)] px-4">
-        <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl py-10 gap-10">
+        <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl py-10 gap-10 w-full">
           <img className="rounded-lg shadow-lg aspect-[9/13] max-w-[250px] md:max-w-[300px] w-full" src={poster_path} alt={title} title={title} />
           <div className="flex flex-col w-full gap-4">
             <div>
-              <h1 className="text-3xl font-bold ">
-                <span>{title}</span>
-              </h1>
+              <h1 className="text-3xl font-bold ">{title}</h1>
               <ul className="flex flex-wrap gap-2">
                 {data.genres.map(genre => (
                   <Link href={`/genre/${type}/${genre.id}?category=${genre.name}`} key={genre.id} className="hover:underline">
@@ -64,7 +62,7 @@ export const WatchlistTitle: React.FC<{ data: IMovieData; type: TMediaType }> = 
                   {data.status}
                 </li>
               )}
-      
+
               {data.runtime && (
                 <li title="Runtime" className="px-3 py-0.5 border max-w-max text-xs rounded-full">
                   {`${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`}
