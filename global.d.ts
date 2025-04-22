@@ -111,6 +111,16 @@ interface IMovieData {
     backdrops: IImage[]
     posters: IImage[]
   }
+  credits?: {
+    cast: ICast[]
+  }
+  keywords?: {
+    keywords: IKeyword[]
+  }
+  reviews?: {
+    page: number
+    results: IReview[]
+  }
 }
 
 interface IVideo {
@@ -172,7 +182,6 @@ interface ICast {
   other: number
 }
 
-
 interface IResponse<T> {
   page: number
   results: T
@@ -180,13 +189,12 @@ interface IResponse<T> {
   total_pages: number
 }
 
-
-interface IPage  {
+interface IPage {
   params: Promise<{ [key: string]: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-interface ITitles  {
+interface ITitles {
   data: IResponse<IMovieData[]> | null
   type?: TMediaType
   title: string
@@ -194,7 +202,6 @@ interface ITitles  {
   limit?: number
   results?: boolean
 }
-
 
 interface IExternalIds {
   freebase_mid?: string
@@ -208,7 +215,6 @@ interface IExternalIds {
   twitter_id?: string | number
   youtube_id?: string | number
 }
-
 
 interface IActor extends ICast {
   also_known_as: string[]
