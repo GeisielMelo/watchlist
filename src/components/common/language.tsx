@@ -1,10 +1,19 @@
+'use client'
+
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { IoLanguage } from 'react-icons/io5'
+import { useRouter } from 'next/navigation'
 import { locales } from '@/i18n/locales'
-import Link from 'next/link'
+import Cookies from 'js-cookie'
 
 export const Language: React.FC = () => {
+  const router = useRouter()
+
+  const handleLocaleChange = (locale: string) => {
+    Cookies.set('locale', locale)
+    router.push(`/${locale}`)
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -14,9 +23,9 @@ export const Language: React.FC = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         {locales.map((language, key) => (
-          <Link href={`/${language.value}`} key={key}>
-            <DropdownMenuItem className='text-xs cursor-pointer'>{language.label}</DropdownMenuItem>
-          </Link>
+          <DropdownMenuItem key={key} className="text-xs cursor-pointer" onClick={() => handleLocaleChange(language.value)}>
+            {language.label}
+          </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
