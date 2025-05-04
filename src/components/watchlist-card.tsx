@@ -36,7 +36,7 @@ export const WatchlistCard: React.FC<{ data: IMovieData }> = ({ data }) => {
       <WatchlistTitleFavorite data={data} />
 
       <Link href={`/${data.media_type}/${data.id}`}>
-        <img src={src} className="w-full aspect-[9/14] rounded-lg bg-foreground" alt={title} title={title} />
+        <img src={src} className="w-full aspect-[9/14] bg-foreground" alt={title} title={title} />
         <div className="text-md">
           <p className="overflow-hidden text-nowrap overflow-ellipsis mt-4 mb-1">{title}</p>
           <div className="flex justify-between items-center">

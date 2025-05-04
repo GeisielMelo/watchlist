@@ -29,9 +29,9 @@ export const WatchlistTitles: React.FC<ITitles> = ({ title, href, type, limit, r
 
   return (
     <section className="flex flex-col items-center px-4">
-      <div className="flex flex-col justify-center max-w-7xl w-full pb-10">
-        <div className="my-10">
-          <h1 className="text-4xl font-semibold capitalize ">{title}</h1>
+      <div className="flex flex-col justify-center max-w-7xl w-full py-10">
+        <div className="mb-4">
+          <h1 className="text-4xl font-semibold capitalize">{title}</h1>
           {results && (
             <span className="text-zinc-400 text-sm font-semibold">
               {data.total_results.toLocaleString('pt-BR')} Results

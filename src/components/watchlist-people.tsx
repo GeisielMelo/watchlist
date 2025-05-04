@@ -5,8 +5,8 @@ import Link from 'next/link'
 export const WatchlistPeople: React.FC<{ person: IResponse<IActor[]>}> = ({ person }) => {
   return (
     <section className="flex flex-col items-center px-4">
-      <div className="flex flex-col justify-center max-w-7xl w-full pb-10">
-        <div className="my-10">
+      <div className="flex flex-col justify-center max-w-7xl w-full py-10">
+        <div className="mb-4">
           <h1 className="text-4xl font-semibold capitalize">Popular People</h1>
           {person?.results && (
             <span className="text-zinc-400 text-sm font-semibold">
@@ -20,7 +20,7 @@ export const WatchlistPeople: React.FC<{ person: IResponse<IActor[]>}> = ({ pers
             <Link key={key} href={`/people/${element.id}`} className='rounded-lg'>
               <img
                 src={TMDB_POSTER_PATH_185x278 + element.profile_path}
-                className="w-full aspect-[9/14] rounded-lg bg-foreground"
+                className="w-full aspect-[9/14] bg-foreground"
                 alt={element.name || element.original_name}
                 title={element.name || element.original_name}
               />
