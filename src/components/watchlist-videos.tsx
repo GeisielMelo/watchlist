@@ -5,7 +5,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 
 export const WatchlistVideos: React.FC<{ videos: IVideo[] }> = ({ videos }) => {
-  console.log(videos)
   const allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 
   return (
