@@ -2,7 +2,7 @@
   "singleQuote": true,
   "trailingComma": "all",
   "useTabs": false,
-  "printWidth": 160,
+  "printWidth": 100,
   "semi": false,
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
