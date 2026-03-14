@@ -3,17 +3,17 @@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { IoLanguage } from 'react-icons/io5'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from '@/i18n/navigation'
 import { locales } from '@/i18n/locales'
-import Cookies from 'js-cookie'
 
 export const Language: React.FC = () => {
   const router = useRouter()
+  const pathname = usePathname()
 
   const handleLocaleChange = (locale: string) => {
-    Cookies.set('locale', locale)
-    router.push(`/${locale}`)
+    router.replace(pathname, { locale })
   }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

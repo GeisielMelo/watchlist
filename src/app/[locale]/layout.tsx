@@ -10,7 +10,6 @@ import NextTopLoader from 'nextjs-toploader'
 import { ThemeProvider } from 'next-themes'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { cookies } from 'next/headers'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -23,9 +22,7 @@ interface RootLayoutProps {
 export default async function LocaleLayout({ children, params }: RootLayoutProps) {
   const { locale } = await params
 
-  const cookieLocale = (await cookies()).get('locale')?.value
-  const activeLocale = cookieLocale && hasLocale(routing.locales, cookieLocale) ? cookieLocale : locale
-  if (!hasLocale(routing.locales, activeLocale)) return notFound()
+  if (!hasLocale(routing.locales, locale)) return notFound()
 
   return (
     <html lang={locale} suppressHydrationWarning>
