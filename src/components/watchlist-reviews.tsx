@@ -1,9 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { TMDB_POSTER_PATH_45x45 } from '@/constants/tmdb'
 import { formatDistanceToNow } from 'date-fns'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Review: React.FC<{ review: IReview }> = ({ review }) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -12,12 +12,14 @@ const Review: React.FC<{ review: IReview }> = ({ review }) => {
   return (
     <div key={review.id} className="flex flex-row gap-4 text-sm">
       {review.author_details.avatar_path ? (
-        <img
-          className="min-w-[45px] max-h-[45px] rounded-full border"
+        <Image
+          className="min-w-[45px] max-h-[45px] rounded-full border border-zinc-700 shadow-sm object-cover"
           src={TMDB_POSTER_PATH_45x45 + review.author_details.avatar_path}
+          width={45}
+          height={45}
+          sizes="45px"
           alt={review.author_details.username}
           title={review.author_details.username}
-          loading="lazy"
         />
       ) : (
         <div style={{ width: '40px', height: '40px' }} title={review.author_details.username}>

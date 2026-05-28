@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import 'slick-carousel/slick/slick-theme.css'
@@ -8,6 +7,7 @@ import { TMDB_IMAGE_ORIGINAL, TMDB_POSTER_PATH_300x450 } from '@/constants/tmdb'
 import { HiStar } from 'react-icons/hi'
 import Slider from 'react-slick'
 
+import Image from 'next/image'
 import Link from 'next/link'
 
 const sliderSettings = {
@@ -48,11 +48,15 @@ const SliderItem: React.FC<{ movie: IMovieData }> = ({ movie }) => {
               View Movie
             </Link>
           </div>
-          <img
-            className="rounded-md max-w-1/2"
+          <Image
+            className="rounded-md max-w-1/2 h-auto w-auto border border-zinc-700 shadow-sm"
             src={TMDB_POSTER_PATH_300x450 + movie.poster_path}
+            width={300}
+            height={450}
+            sizes="(max-width: 768px) 50vw, 300px"
             alt={movie.title || movie.original_title}
             title={movie.title || movie.original_title}
+            priority
           />
         </div>
       </div>
