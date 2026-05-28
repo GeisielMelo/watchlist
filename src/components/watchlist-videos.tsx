@@ -19,6 +19,7 @@ const VideoCard: React.FC<{ video: IVideo; featured?: boolean }> = ({ video, fea
               fill
               sizes={featured ? '(max-width: 1024px) 100vw, 800px' : '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'}
               className="object-cover transition-opacity group-hover:opacity-90"
+              priority={featured}
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
               <div className="bg-black/70 rounded-full p-3 group-hover:bg-black/90 group-hover:scale-110 transition-all">
