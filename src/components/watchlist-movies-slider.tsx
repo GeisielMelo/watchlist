@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css'
 import { TMDB_IMAGE_ORIGINAL, TMDB_POSTER_PATH_300x450 } from '@/constants/tmdb'
 import { HiStar } from 'react-icons/hi'
 import Slider from 'react-slick'
+import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -48,16 +49,17 @@ const SliderItem: React.FC<{ movie: IMovieData }> = ({ movie }) => {
               View Movie
             </Link>
           </div>
-          <Image
-            className="rounded-md max-w-1/2 h-auto w-auto border border-zinc-700 shadow-sm"
-            src={TMDB_POSTER_PATH_300x450 + movie.poster_path}
-            width={300}
-            height={450}
-            sizes="(max-width: 768px) 50vw, 300px"
-            alt={movie.title || movie.original_title}
-            title={movie.title || movie.original_title}
-            priority
-          />
+          <div className="relative w-[200px] h-[300px] sm:w-[260px] sm:h-[390px] md:w-[300px] md:h-[450px] shrink-0">
+            <Image
+              className="object-cover rounded-md border border-zinc-700 shadow-sm"
+              src={TMDB_POSTER_PATH_300x450 + movie.poster_path}
+              fill
+              sizes="(max-width: 640px) 200px, (max-width: 768px) 260px, 300px"
+              alt={movie.title || movie.original_title}
+              title={movie.title || movie.original_title}
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +67,11 @@ const SliderItem: React.FC<{ movie: IMovieData }> = ({ movie }) => {
 }
 
 export const WatchlistMoviesSlider: React.FC<{ movies: IMovieData[] }> = ({ movies }) => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
   if (!movies || movies.length === 0) return null
+  if (!mounted) return <section className="h-[calc(100vh-56px)]" />
 
   return (
     <section>

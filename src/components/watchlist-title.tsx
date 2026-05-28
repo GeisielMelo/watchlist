@@ -19,10 +19,10 @@ export const WatchlistTitle: React.FC<{ data: IMovieData; type: TMediaType }> = 
       <div className="flex justify-center w-full bg-[rgba(10,25,47,0.7)] px-4">
         <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl py-10 gap-10 w-full">
           <Image
-            className="rounded-md shadow-sm border border-zinc-700 aspect-[9/13] max-w-[250px] md:max-w-[300px] w-full h-auto"
+            className="rounded-md shadow-sm border border-zinc-700 max-w-[250px] md:max-w-[300px] w-full h-auto"
             src={poster_path}
             width={300}
-            height={433}
+            height={450}
             sizes="(max-width: 768px) 250px, 300px"
             alt={title}
             title={title}
