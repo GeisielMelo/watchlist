@@ -1,6 +1,5 @@
 'use client'
 
-/* eslint-disable @next/next/no-img-element */
 import { TMDB_POSTER_PATH_300x450 } from '@/constants/tmdb'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { FaFacebookSquare } from 'react-icons/fa'
@@ -8,6 +7,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { ImYoutube2 } from 'react-icons/im'
 import { format } from 'date-fns'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const ActorBiography: React.FC<{ biography: string }> = ({ biography }) => {
   const [showFullBiography, setShowFullBiography] = useState(false)
@@ -120,10 +120,14 @@ export const WatchlistPerson: React.FC<{ person: IActor }> = ({ person }) => {
     <section className="flex flex-col items-center px-4">
       <div className="flex flex-col justify-center max-w-7xl w-full py-10">
         <div className="flex flex-col md:flex-row gap-8 justify-center items-center md:items-start w-full">
-          <img
+          <Image
             src={TMDB_POSTER_PATH_300x450 + person.profile_path}
-            alt=""
-            className="rounded-lg max-h-[450px] max-w-[300px] w-full shadow-md"
+            alt={person.name}
+            width={300}
+            height={450}
+            sizes="(max-width: 768px) 80vw, 300px"
+            className="rounded-md max-h-[450px] max-w-[300px] w-full h-auto border border-zinc-700 shadow-sm"
+            priority
           />
           <div className="flex flex-col gap-8 w-full">
             <div className="flex flex-row justify-between">

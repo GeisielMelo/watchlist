@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { TMDB_POSTER_PATH_185x278, TMDB_POSTER_PATH_PLACEHOLDER } from '@/constants/tmdb'
 import { useFavoritesContext } from '@/context/favotires-contex'
 import { ImBookmark, ImMinus, ImPlus } from 'react-icons/im'
 import { HiStar } from 'react-icons/hi'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const WatchlistTitleFavorite: React.FC<{ data: IMovieData }> = ({ data }) => {
@@ -36,7 +36,16 @@ export const WatchlistCard: React.FC<{ data: IMovieData }> = ({ data }) => {
       <WatchlistTitleFavorite data={data} />
 
       <Link href={`/${data.media_type}/${data.id}`}>
-        <img src={src} className="w-full aspect-[9/14] bg-foreground" alt={title} title={title} />
+        <div className="relative w-full aspect-[9/14] bg-foreground rounded-md border border-zinc-700 shadow-sm overflow-hidden">
+          <Image
+            src={src}
+            alt={title}
+            title={title}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
+            className="object-cover"
+          />
+        </div>
         <div className="text-md">
           <p className="overflow-hidden text-nowrap overflow-ellipsis mt-4 mb-1">{title}</p>
           <div className="flex justify-between items-center">

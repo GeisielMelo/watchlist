@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { TMDB_IMAGE_ORIGINAL, TMDB_POSTER_PATH_300x450 } from '@/constants/tmdb'
@@ -6,6 +5,7 @@ import { FavoriteButton } from './common/favorite-button'
 import { TrailerDialog } from './common/trailer-dialog'
 import { HomeButton } from './common/home-button'
 import { HiStar } from 'react-icons/hi'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const WatchlistTitle: React.FC<{ data: IMovieData; type: TMediaType }> = ({ data, type }) => {
@@ -18,7 +18,16 @@ export const WatchlistTitle: React.FC<{ data: IMovieData; type: TMediaType }> = 
     <section style={{ backgroundImage: backgroundImage }} className="bg-no-repeat bg-cover bg-center text-white">
       <div className="flex justify-center w-full bg-[rgba(10,25,47,0.7)] px-4">
         <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl py-10 gap-10 w-full">
-          <img className="rounded-lg shadow-lg aspect-[9/13] max-w-[250px] md:max-w-[300px] w-full" src={poster_path} alt={title} title={title} />
+          <Image
+            className="rounded-md shadow-sm border border-zinc-700 max-w-[250px] md:max-w-[300px] w-full h-auto"
+            src={poster_path}
+            width={300}
+            height={450}
+            sizes="(max-width: 768px) 250px, 300px"
+            alt={title}
+            title={title}
+            priority
+          />
           <div className="flex flex-col w-full gap-4">
             <div>
               <h1 className="text-3xl font-bold ">{title}</h1>

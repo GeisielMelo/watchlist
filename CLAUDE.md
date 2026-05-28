@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Dev server on port 3010 (Turbopack)
+npm run dev      # Dev server on port 3010 (Webpack)
 npm run build    # Production build
 npm start        # Production server on port 3010
 npm run lint     # ESLint

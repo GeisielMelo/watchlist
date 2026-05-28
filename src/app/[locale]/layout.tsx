@@ -6,7 +6,6 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import WatchlistHeader from '@/components/watchlist-header'
 import WatchlistFooter from '@/components/watchlist-footer'
 import { Geist, Geist_Mono } from 'next/font/google'
-import NextTopLoader from 'nextjs-toploader'
 import { ThemeProvider } from 'next-themes'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
@@ -27,7 +26,6 @@ export default async function LocaleLayout({ children, params }: RootLayoutProps
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-        <NextTopLoader color="#71717A" />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider locale={locale}>
             <FavoritesProvider>
