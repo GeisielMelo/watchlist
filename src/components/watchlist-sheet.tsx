@@ -25,31 +25,55 @@ export const WatchlistSheet: React.FC = () => {
             <SheetTitle>Watchlist</SheetTitle>
           </SheetHeader>
           <div className="grid gap-4 py-4 text-center">
-            <Link href="/trending" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/trending"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Trending
             </Link>
-            <Link href="/upcoming" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/upcoming"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Upcoming
             </Link>
-            <Link href="/top_rated" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/top_rated"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Top Rated
             </Link>
-            <Link href="/popular" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/popular"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Popular
             </Link>
-            <Link href="/movie" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/movie"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Movie
             </Link>
             <Link href="/tv" className="border-y border-accent hover:bg-accent/90 transition-all">
               TV Shows
             </Link>
-            <Link href="/favorites" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/favorites"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Favorites
             </Link>
-            <Link href="/people" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/people"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               People
             </Link>
-            <Link href="/genre" className="border-y border-accent hover:bg-accent/90 transition-all">
+            <Link
+              href="/genre"
+              className="border-y border-accent hover:bg-accent/90 transition-all"
+            >
               Genre
             </Link>
           </div>
