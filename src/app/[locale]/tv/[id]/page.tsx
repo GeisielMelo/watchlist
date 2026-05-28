@@ -1,3 +1,4 @@
+import { WatchlistTitleSpecs } from '@/components/watchlist-title-specs'
 import { WatchlistReviews } from '@/components/watchlist-reviews'
 import { WatchlistTitles } from '@/components/watchlist-titles'
 import { WatchlistVideos } from '@/components/watchlist-videos'
@@ -17,17 +18,20 @@ export default async function Tv({ params }: IPage) {
 
   return (
     <>
-      {data && <WatchlistTitle data={data} type="tv" />}
+      <WatchlistTitle data={data} type="tv" />
 
-      <div className="flex items-center justify-center my-10 px-4">
-        <div className="flex flex-col sm:flex-row justify-center max-w-7xl w-full gap-8">
-          <div className="flex flex-col w-full overflow-hidden gap-8">
-            {filteredVideos.length >= 1 && <WatchlistVideos videos={filteredVideos} />}
-          </div>
+      <div className="flex flex-col items-center px-4 my-10 gap-12">
+        <div className="w-full max-w-7xl">
+          <WatchlistTitleSpecs data={data} />
         </div>
+        {filteredVideos.length >= 1 && (
+          <div className="w-full max-w-7xl">
+            <WatchlistVideos videos={filteredVideos} />
+          </div>
+        )}
       </div>
 
-      {data && data.similar && <WatchlistTitles type="tv" limit={12} title="Similar TV Shows" data={data.similar} />}
+      {data.similar && <WatchlistTitles type="tv" limit={12} title="Similar TV Shows" data={data.similar} />}
       {filteredReviews.length >= 1 && <WatchlistReviews reviews={filteredReviews} />}
     </>
   )
