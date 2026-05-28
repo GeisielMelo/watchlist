@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -10,8 +12,14 @@ import {
 } from '@/components/ui/sheet'
 import { ChevronRight, MenuIcon } from 'lucide-react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export const WatchlistSheet: React.FC = () => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return <div className="md:hidden h-8 w-8" />
+
   return (
     <div className="md:hidden">
       <Sheet>
